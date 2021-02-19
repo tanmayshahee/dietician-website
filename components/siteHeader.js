@@ -16,9 +16,9 @@ export default function SiteHeader() {
           name='viewport'
           content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'
         />
-        <meta name='description' content='Dietician' />
+        <meta name='description' content='Dietitian' />
         <meta name='keywords' content='Keywords' />
-        <title>Kajol Jain | Dietician</title>
+        <title>Kajol Jain | Dietitian</title>
 
         <link rel='manifest' href='/manifest.json' />
         <link

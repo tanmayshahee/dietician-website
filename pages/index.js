@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Kajol Jain | Dietician</title>
+        <title>Kajol Jain | Dietitian</title>
       </Head>
 
       <div id='site-content'>
@@ -14,7 +14,7 @@ export default function Home() {
           <div className='container'>
             <i className='icon-cupcake logo'></i>
             <h1 className='site-title'>Kajol Jain</h1>
-            <small className='site-description'>Professional Dietician</small>
+            <small className='site-description'>Professional Dietitian</small>
           </div>
         </div>
         <main className='main-content'>
