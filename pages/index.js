@@ -1,65 +1,117 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import SiteHeader from '../components/siteHeader';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Kajol Jain | Dietecian</title>
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div id='site-content'>
+        <SiteHeader />
+        <div className='hero'>
+          <div className='container'>
+            <i className='icon-cupcake logo'></i>
+            <h1 className='site-title'>Kajol Jain</h1>
+            <small className='site-description'>Professional Dietician</small>
+          </div>
         </div>
-      </main>
+        <main className='main-content'>
+          <div className='fullwidth-block cooking-section category-block'>
+            <div className='container'>
+              <figure>
+                <img
+                  src='https://demo.themezy.com/system/resources/demo_themes/000/000/022//dummy/cooking@2x.png'
+                  alt='cooking'
+                />
+              </figure>
+              <div className='category-content'>
+                <h1 className='category-title'>Lorem ipsum dolor sit</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+                  autem aperiam ab, rem dignissimos ducimus soluta culpa
+                  veritatis consequuntur asperiores, ad cum, ipsum quidem harum
+                  error dolores quia eius quae.
+                </p>
+                <a href='#' className='button'>
+                  Read more
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className='fullwidth-block restaurant-section category-block'>
+            <div className='container'>
+              <figure>
+                <img
+                  src='https://demo.themezy.com/system/resources/demo_themes/000/000/022//dummy/restaurant@2x.png'
+                  alt='restaurant'
+                />
+              </figure>
+              <div className='category-content'>
+                <h1 className='category-title'>Duis aute reprehenderit</h1>
+                <p>
+                  Perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+                </p>
+                <a href='#' className='button'>
+                  Read more
+                </a>
+              </div>
+            </div>
+          </div>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+          <div className='fullwidth-block fruits-section category-block'>
+            <div className='container'>
+              <figure>
+                <img
+                  src='https://demo.themezy.com/system/resources/demo_themes/000/000/022//dummy/fruits@2x.png'
+                  alt='fruits'
+                />
+              </figure>
+              <div className='category-content'>
+                <h1 className='category-title'>Nam libero tempore</h1>
+                <p>
+                  Dignissimos ducimus qui blanditiis praesentium voluptatum
+                  deleniti atque corrupti quos dolores et quas molestias
+                  excepturi sint occaecati cupiditate non provident, similique
+                  sunt in culpa qui officia deserunt mollitia animi, id est
+                  laborum.
+                </p>
+                <a href='#' className='button'>
+                  Read more
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className='fullwidth-block vegetables-section category-block'>
+            <div className='container'>
+              <figure>
+                <img
+                  src='https://demo.themezy.com/system/resources/demo_themes/000/000/022//dummy/vegetables@2x.png'
+                  alt='vegetables'
+                />
+              </figure>
+              <div className='category-content'>
+                <h1 className='category-title'>Sint molestiae recusandae</h1>
+                <p>
+                  Cupiditate non provident, similique sunt in culpa qui officia
+                  deserunt mollitia animi, id est laborum et dolorum fuga. Et
+                  harum quidem rerum facilis est et expedita distinctio. Nam
+                  libero tempore, cum soluta nobis est eligendi optio cumque
+                  nihil.
+                </p>
+                <a href='#' className='button'>
+                  Read more
+                </a>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
+  );
 }
