@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import SiteHeader from '../components/siteHeader';
 import RecepieMeta from '../components/recipeMeta';
 export default function Recipes() {
@@ -33,9 +34,9 @@ export default function Recipes() {
                   </figure>
                   <div className='recipe-detail'>
                     <h2 className='recipe-title'>
-                      <a href='recipeDetail'>
-                        Duis pellentesque nulla eget vehicula porta
-                      </a>
+                      <Link href='/recipeDetail'>
+                        <a>Duis pellentesque nulla eget vehicula porta</a>
+                      </Link>
                     </h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -55,9 +56,9 @@ export default function Recipes() {
                   </figure>
                   <div className='recipe-detail'>
                     <h2 className='recipe-title'>
-                      <a href='recipeDetail'>
-                        Duis pellentesque nulla eget vehicula porta
-                      </a>
+                      <Link href='/recipeDetail'>
+                        <a>Duis pellentesque nulla eget vehicula porta</a>
+                      </Link>
                     </h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -78,9 +79,9 @@ export default function Recipes() {
                   </figure>
                   <div className='recipe-detail'>
                     <h2 className='recipe-title'>
-                      <a href='recipeDetail'>
-                        Duis pellentesque nulla eget vehicula porta
-                      </a>
+                      <Link href='/recipeDetail'>
+                        <a>Duis pellentesque nulla eget vehicula porta</a>
+                      </Link>
                     </h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -100,9 +101,9 @@ export default function Recipes() {
                   </figure>
                   <div className='recipe-detail'>
                     <h2 className='recipe-title'>
-                      <a href='recipeDetail'>
-                        Duis pellentesque nulla eget vehicula porta
-                      </a>
+                      <Link href='/recipeDetail'>
+                        <a>Duis pellentesque nulla eget vehicula porta</a>
+                      </Link>
                     </h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -122,9 +123,9 @@ export default function Recipes() {
                   </figure>
                   <div className='recipe-detail'>
                     <h2 className='recipe-title'>
-                      <a href='recipeDetail'>
-                        Duis pellentesque nulla eget vehicula porta
-                      </a>
+                      <Link href='/recipeDetail'>
+                        <a>Duis pellentesque nulla eget vehicula porta</a>
+                      </Link>
                     </h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.

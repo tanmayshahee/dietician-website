@@ -6,9 +6,9 @@ export default function RecipeDetail() {
     <>
       <Head>
         <title>Kajol Jain | Recipe Detail</title>
-        <SiteHeader />
       </Head>
       <div id='site-content'></div>
+      <SiteHeader />
       <main className='main-content recipe-detail'>
         <div className='content'>
           <div className='container'>
