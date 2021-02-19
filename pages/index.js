@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Kajol Jain | Dietecian</title>
+        <title>Kajol Jain | Dietician</title>
       </Head>
 
       <div id='site-content'>
