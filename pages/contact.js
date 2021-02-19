@@ -1,6 +1,44 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import SiteHeader from '../components/siteHeader';
+import { useForm } from 'react-hook-form';
+import emailjs from 'emailjs-com';
 export default function Contact() {
+  const { register, handleSubmit, errors } = useForm();
+
+  useEffect(() => {
+    emailjs.init('user_UNNbfLrqfg9bNWmQ4HidL');
+  }, []);
+
+  const onSubmit = (data, e) => {
+    console.log(data);
+
+    let templateParams = {
+      user_name: data.name,
+      user__NAME: data.name,
+      user_mobile: data.mobile,
+      user_Email: data.email,
+      reply_to: data.email,
+      message: data.message,
+      to_name: 'Kajol',
+    };
+    emailjs
+      .send(
+        'contact_service',
+        'template_contact_form',
+        templateParams,
+        'user_UNNbfLrqfg9bNWmQ4HidL'
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          e.target.reset();
+        },
+        (err) => {
+          console.log('FAILED...', err);
+        }
+      );
+  };
   return (
     <>
       <Head>
@@ -43,19 +81,40 @@ export default function Contact() {
 
               {/* <div className='map'></div> */}
 
-              <div className='contact-form'>
-                <div className='row'>
-                  <div className='col-md-5'>
-                    <input type='text' placeholder='Your name...' />
-                    <input type='text' placeholder='Email...' />
-                    <input type='text' placeholder='Website...' />
-                  </div>
-                  <div className='col-md-7'>
-                    <textarea placeholder='Message...'></textarea>
-                    <input type='submit' value='Send message' />
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className='contact-form'>
+                  <div className='row'>
+                    <div className='col-md-5'>
+                      <input
+                        type='text'
+                        name={'name'}
+                        ref={register}
+                        placeholder='Your name...'
+                      />
+                      <input
+                        type='text'
+                        name={'email'}
+                        ref={register}
+                        placeholder='Email...'
+                      />
+                      <input
+                        type='number'
+                        name={'mobile'}
+                        ref={register}
+                        placeholder='Mobile Number...'
+                      />
+                    </div>
+                    <div className='col-md-7'>
+                      <textarea
+                        name={'message'}
+                        ref={register}
+                        placeholder='Message...'
+                      ></textarea>
+                      <input type='submit' value='Send message' />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </main>

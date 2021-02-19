@@ -2115,9 +2115,9 @@ p {
 }
 
 .main-content.recipe-detail .main-img img {
-  width: 370px;
-  aspect-ratio: auto 370 / 370;
-  height: 370px;
+  width: 320px;
+  aspect-ratio: auto 320 / 320;
+  height: 320px;
 }
 
 .recipe-detail .avatar {
