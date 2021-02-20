@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import SiteHeader from '../components/siteHeader';
+import Image from 'next/image';
+import { isMobile } from 'react-device-detect';
 
 export default function Home() {
   return (
@@ -9,10 +11,17 @@ export default function Home() {
       </Head>
 
       <div id='site-content'>
-        <SiteHeader />
+        <SiteHeader page={'home'} />
         <div className='hero'>
           <div className='container'>
-            <i className='icon-cupcake logo'></i>
+            <Image
+              src={'/icons/icon-512x512.png'}
+              alt='logo'
+              layout={isMobile ? 'responsive' : 'fixed'}
+              width='100'
+              height='100'
+              sizes={'(max-width: 600px) 200px, 50vw'}
+            />
             <h1 className='site-title'>Kajol Jain</h1>
             <small className='site-description'>Professional Dietitian</small>
           </div>

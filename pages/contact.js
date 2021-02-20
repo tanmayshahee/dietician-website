@@ -1,18 +1,38 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import SiteHeader from '../components/siteHeader';
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
+
 export default function Contact() {
   const { register, handleSubmit, errors } = useForm();
-
+  const [showOtpComponent, toggleOtpComponent] = useState(false);
   useEffect(() => {
     emailjs.init('user_UNNbfLrqfg9bNWmQ4HidL');
   }, []);
 
-  const onSubmit = (data, e) => {
-    console.log(data);
+  const initializeOtpWidget = (data) => {
+    let appKey = 'ilijo2a4ibu1i6y3e9ef';
+    var widget = new RingCaptcha.Widget('#xyz', {
+      app: appKey,
+      events: {
+        ready: function () {
+          if (
+            document.getElementsByClassName('phone-input') &&
+            document.getElementsByClassName('phone-input')[0]
+          ) {
+            document.getElementsByClassName('phone-input')[0].value =
+              data.mobile;
+          }
+        },
+        verified: function () {
+          onOtpVerified(data);
+        },
+      },
+    }).setup();
+  };
 
+  const onOtpVerified = (data) => {
     let templateParams = {
       user_name: data.name,
       user__NAME: data.name,
@@ -32,12 +52,21 @@ export default function Contact() {
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
-          e.target.reset();
+          toggleOtpComponent(false);
+          //e.target.reset();
         },
         (err) => {
           console.log('FAILED...', err);
         }
       );
+  };
+
+  const onSubmit = async (data, e) => {
+    console.log(data);
+    if (data.mobile) {
+      toggleOtpComponent(true);
+      initializeOtpWidget(data);
+    }
   };
   return (
     <>
@@ -45,7 +74,7 @@ export default function Contact() {
         <title>Kajol Jain | Contact</title>
       </Head>
       <div id='site-content'>
-        <SiteHeader />
+        <SiteHeader page={'contact'} />
         <main className='main-content'>
           <div className='content'>
             <div className='container'>
@@ -80,41 +109,49 @@ export default function Contact() {
               </div>
 
               {/* <div className='map'></div> */}
-
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='contact-form'>
-                  <div className='row'>
-                    <div className='col-md-5'>
-                      <input
-                        type='text'
-                        name={'name'}
-                        ref={register}
-                        placeholder='Your name...'
-                      />
-                      <input
-                        type='text'
-                        name={'email'}
-                        ref={register}
-                        placeholder='Email...'
-                      />
-                      <input
-                        type='number'
-                        name={'mobile'}
-                        ref={register}
-                        placeholder='Mobile Number...'
-                      />
-                    </div>
-                    <div className='col-md-7'>
-                      <textarea
-                        name={'message'}
-                        ref={register}
-                        placeholder='Message...'
-                      ></textarea>
-                      <input type='submit' value='Send message' />
+              {showOtpComponent ? (
+                <div
+                  id='xyz'
+                  data-widget
+                  data-app='ilijo2a4ibu1i6y3e9ef'
+                  data-locale='en'
+                ></div>
+              ) : (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className='contact-form'>
+                    <div className='row'>
+                      <div className='col-md-5'>
+                        <input
+                          type='text'
+                          name={'name'}
+                          ref={register}
+                          placeholder='Your name...'
+                        />
+                        <input
+                          type='text'
+                          name={'email'}
+                          ref={register}
+                          placeholder='Email...'
+                        />
+                        <input
+                          type='number'
+                          name={'mobile'}
+                          ref={register}
+                          placeholder='Mobile Number...'
+                        />
+                      </div>
+                      <div className='col-md-7'>
+                        <textarea
+                          name={'message'}
+                          ref={register}
+                          placeholder='Message...'
+                        ></textarea>
+                        <input type='submit' value='Send message' />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              )}
             </div>
           </div>
         </main>

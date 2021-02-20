@@ -1,10 +1,16 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function footer() {
   return (
     <footer className='site-footer'>
       <div className='container'>
-        <i className='icon-cupcake logo'></i>
+        <Image
+          src={'/icons/icon-512x512.png'}
+          alt='logo'
+          width={100}
+          height={100}
+        />
         <nav className='footer-navigation'>
           <Link href='/about'>
             <a>About me</a>
@@ -12,14 +18,14 @@ export default function footer() {
           <Link href='/offer'>
             <a>My Offer</a>
           </Link>
-          <Link href='/recipes'>
+          {/* <Link href='/recipes'>
             <a>Recipes</a>
-          </Link>
+          </Link> */}
           <Link href='/contact'>
             <a>Contact</a>
           </Link>
         </nav>
-        <div className='subscribe'>
+        {/* <div className='subscribe'>
           <form action='#'>
             <input
               type='text'
@@ -27,7 +33,7 @@ export default function footer() {
             />
             <input type='submit' value='Subscribe' />
           </form>
-        </div>
+        </div> */}
         <div className='social-links'>
           <a href='#' className='facebook'>
             <i className='fa fa-facebook'></i>

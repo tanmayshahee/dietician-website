@@ -7,7 +7,7 @@ export default function Offer() {
         <title>Kajol Jain | Offer</title>
       </Head>
       <div id='site-content'>
-        <SiteHeader />
+        <SiteHeader page={'offer'} />
         <main className='main-content'>
           <div className='content'>
             <div className='container'>

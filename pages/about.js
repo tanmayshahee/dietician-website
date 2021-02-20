@@ -8,7 +8,7 @@ export default function About() {
         <title>Kajol Jain | About Me</title>
       </Head>
       <div id='site-content'>
-        <SiteHeader />
+        <SiteHeader page={'about'} />
         <main className='main-content'>
           <div className='author-bio'>
             <div className='container'>

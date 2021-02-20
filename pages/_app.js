@@ -12,6 +12,11 @@ function MyApp({ Component, pageProps }) {
       <Header />
       <Component {...pageProps} />
       <Footer />
+      <script
+        type='text/javascript'
+        charset='UTF-8'
+        src='//cdn.ringcaptcha.com/widget/v2/bundle.min.js'
+      ></script>
     </>
   );
 }

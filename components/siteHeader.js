@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-export default function SiteHeader() {
+import Image from 'next/image';
+export default function SiteHeader({ page }) {
   const [showMobileMenu, toggleMobileMenu] = useState(false);
   const toggleSideMenu = () => {
     toggleMobileMenu(!showMobileMenu);
@@ -90,7 +91,12 @@ export default function SiteHeader() {
         <div className='container'>
           <Link href='/'>
             <a id='branding' className='pull-left'>
-              <i className='icon-cupcake logo'></i>
+              <Image
+                src={'/icons/icon-512x512.png'}
+                alt='logo'
+                width={50}
+                height={50}
+              />
               <h1 className='site-title'>Kajol Jain</h1>
             </a>
           </Link>
@@ -103,22 +109,22 @@ export default function SiteHeader() {
               <i className='fa fa-bars'></i>
             </button>
             <ul className='menu'>
-              <li className='menu-item'>
+              <li className={`menu-item ${page === 'about' ? 'active' : ''}`}>
                 <Link href='/about'>
                   <a>About me</a>
                 </Link>
               </li>
-              <li className='menu-item'>
+              <li className={`menu-item ${page === 'offer' ? 'active' : ''}`}>
                 <Link href='/offer'>
                   <a>My Offer</a>
                 </Link>
               </li>
-              <li className='menu-item'>
+              {/* <li className='menu-item'>
                 <Link href='/recipes'>
                   <a>Recipes</a>
                 </Link>
-              </li>
-              <li className='menu-item'>
+              </li> */}
+              <li className={`menu-item ${page === 'contact' ? 'active' : ''}`}>
                 <Link href='/contact'>
                   <a>Contact</a>
                 </Link>
@@ -130,22 +136,22 @@ export default function SiteHeader() {
             className={`mobile-navigation ${showMobileMenu ? 'show-menu' : ''}`}
           >
             <ul className='menu'>
-              <li className='menu-item'>
+              <li className={`menu-item ${page === 'about' ? 'active' : ''}`}>
                 <Link href='/about'>
                   <a>About me</a>
                 </Link>
               </li>
-              <li className='menu-item'>
+              <li className={`menu-item ${page === 'offer' ? 'active' : ''}`}>
                 <Link href='/offer'>
                   <a>My Offer</a>
                 </Link>
               </li>
-              <li className='menu-item'>
+              {/* <li className='menu-item'>
                 <Link href='/recipes'>
                   <a>Recipes</a>
                 </Link>
-              </li>
-              <li className='menu-item'>
+              </li> */}
+              <li className={`menu-item ${page === 'contact' ? 'active' : ''}`}>
                 <Link href='/contact'>
                   <a>Contact</a>
                 </Link>
